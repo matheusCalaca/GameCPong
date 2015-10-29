@@ -3,131 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Title of the document</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body style="background-color: #fff;" onkeypress ="teclado(event)" >
- <button onclick="clearInterval(myVar);"> stop</button><button onclick="teste();"> start</button>
-<div id="fundo" style="background-color: #fff123; position: fixed;">
-	<div id="barra1" style="width: 15px; height: 50px; background-color: blue; transition: all 0.1s ease 0s;position: fixed;"></div>
-	<div id="x" style="background-color: red; width: 15px; height: 15px; border-radius: 100%;  transition: all 0.1s ease 0s;"></div>
-</div>
-<input type="text" id="teclado">
-</body>
-<script type="text/javascript">
-//barra 1
-	var tamanhoX= 600;
-	var tamanhoY= 500;
-	var bDece = 10;
-
-	barra1=document.getElementById("barra1");
-	barra1.style.marginLeft=(tamanhoX-15)+"px";
+<div id="fundo" style="position: fixed;">
+	<!--<div id="barra1" style="width: 15px; height: 50px; background-color: blue; transition: all 0.1s ease 0s;position: fixed;"></div>-->
 	
+</div>
 
-function posYBarraDece(){
-		bDece=bDece+10;
-
-		return bDece;
-	}
-function posYBarraSobe(){
-		bDece=bDece-10;
-
-		return bDece;
-	}
-
-function teclado(event) {
-    var x = event.which || event.keyCode;
-   //alert(x);
-     //document.getElementById("teclado").value;
-    posXBarra1 = barra1.style.marginTop;
-    if(posXBarra1 != "450px"){
-    	 if(x== 50){
-	   		bDece=posYBarraDece();
-	   		//alert(bDece);
-	   		barra1.style.marginTop=bDece+"px";
-	   		//document.getElementById("teclado").value="";   		
-	   }
-    }
-    
-
-    if(posXBarra1 != "0px"){
-    	 if(x== 56){
-	   		bDece=posYBarraSobe();
-	   		//alert(bDece);
-	   		barra1.style.marginTop=bDece+"px";
-	   		//document.getElementById("teclado").value="";   		
-	   }
-    }
-  
-}
-
-</script>
-<script>
-///bola
-	elemento=document.getElementById("x");
-	mar=elemento.style.margin;
-	//alert(mar);
-	var dece= 1;
-	var lado= 1;
-	var mudaY= 10;
-	var mudaX= 20;
-	document.getElementById("fundo").style.height=tamanhoY+"px";
-	document.getElementById("fundo").style.width=tamanhoX+"px";
-	function posY(mudaY){
-		dece=dece+mudaY;
-		return dece;
-	}
-	function posX(mudaX){
-		lado=lado+mudaX;
-		return lado;
-	}
-//alert(posY());
-//alert(posY());
-//alert(posY());
-
-
-/*naveX = window.innerWidth || document.documentElement.clientWidth || document.body.offsetWidth;
-naveY = window.innerHeight || document.documentElement.clientHeight || document.body.offsetHeight;
-alert(naveX+" "+naveY);*/
-
-	var myVar= setInterval(function(){ myTimerY();},100);
-	clearInterval(myVar);
-	//document.getElementsByTagName("table").addEventListener("click", myVar());
-	function teste(){
-		myVar = setInterval(function(){ myTimerY(); },100);
-	}
-
-function myTimerY() {
-	dece=posY(mudaY);
-	if(dece<tamanhoY){
-			//alert(dece);
-			elemento.style.marginTop=dece+"px";
-		
-		}
-	 if(dece>=tamanhoY || dece<=0){ 
-			mudaY=mudaY*(-1);
-			//dece=posY(mudaY);
-	//alert("Y ="+dece+" X ="+lado);
-		}
-		
-		
-		lado=posX(mudaX);
-///---------------X------------
-	if(lado<=tamanhoX){
-
-		//alert(dece);
-		elemento.style.marginLeft=lado+"px";
-		
-	}
- if(lado>tamanhoX|| lado<=0){ 
-		mudaX=mudaX*(-1);
-		//lado=posX(mudaX);
-		
-//alert("Y ="+dece+" X ="+lado);
-	}
-}
-
-
-
-</script>
+</body>
+<script src="Objetos/Terra.js"  type="text/javascript"></script>
+<script src="Objetos/Ball.js" type="text/javascript"></script>
+<script src="Objetos/Barra.js"  type="text/javascript"></script>
 
 </html> 
