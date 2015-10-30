@@ -1,33 +1,4 @@
-
-
-/*metodos*/
-		//dece
-		function mudaGravidade(){
-			gravidade= gravidade*(-1);
-			return gravidade
-		}
-
-		function posY(gravidade){
-			novaPosicaoY=variavelPosicaoY+gravidade;
-			//alert(novaPosicaoY);
-
-
-			if(novaPosicaoY<alturaTerra){
-				bola.style.marginTop=novaPosicaoY+"px";
-				}
-			if((novaPosicaoY>=alturaTerra-alturaBola && novaPosicaoY<=alturaTerra) || (novaPosicaoY>=0 && novaPosicaoY <=10)){
-				bola.style.height=(alturaBola-5)+"px";
-			}else{
-				bola.style.height=alturaBola+"px";
-			}
-			if(novaPosicaoY>=alturaTerra-alturaBola || novaPosicaoY<=0){ 
-					mudaGravidade();
-					//alert(gravidade);
-				}
-				
-			return novaPosicaoY;
-		}
-		//anda pelo eixo X
+//anda pelo eixo X
 		function mudaDirecao(){
 			velocidade= velocidade*(-1);
 			return velocidade
@@ -68,7 +39,7 @@
 
 			return barraPosicaoY;
 		}
-		function posYBarraSobe(){
+		function posYBarraSobe(barraPosicaoY){
 			barraPosicaoY=barraPosicaoY-10;
 
 			return barraPosicaoY;
@@ -76,21 +47,16 @@
 
 	     //document.getElementById("teclado").value;
 	    posYBarra = barra.style.marginTop;
-	    if(posYBarra != larguraTerra){
+	    //alert(barraPosicaoY+" "+alturaTerra);
+	    if(barraPosicaoY <= alturaTerra-alturaBarra){
 	    	 if(x == 50){
 		   		barraPosicaoY=posYBarraDece(barraPosicaoY);
-		   		//alert(barraPosicaoY);
-		   		
-		   		//document.getElementById("teclado").value="";   		
 			}
 		}
 
-		if(posYBarra != "0px"){
-			if(x== 56){
-		   		barraPosicaoY=posYBarraSobe();
-		   		//alert(bDece);
-		   		barra.style.marginTop=barraPosicaoY+"px";
-		   		//document.getElementById("teclado").value="";   		
+		if(barraPosicaoY >= "0"){
+			if(x == 56){
+		   		barraPosicaoY=posYBarraSobe(barraPosicaoY);
 	   		}
 		}
 	  
