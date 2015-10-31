@@ -46,18 +46,69 @@
 		var myVar= setInterval(function(){variavelPosicaoY=posY(gravidade); variavelPosicaoX=posX(velocidade);},100);
 	};andaBola();
 	/*Colisao*/
-	function verificaColisao(positionBarra , positionBola){
+	function verificaColisao(){
 
 
 	}
 
 var myTEste= setInterval(function(){
-	positionPlayer.x=barra.style.marginLeft;
-	positionPlayer.y=barra.style.marginTop;
-	posbola.x=bola.style.marginLeft;
-	posbola.y=bola.style.marginTop;;
-	/*if((positionPlayer.x >=posbola.x && positionPlayer.x <= posbola.x +laguraBola) && positionPlayer.y >=posbola.y && positionPlayer.y <= posbola.y +alturaBola)) ||((positionPlayer.x + larguraBarra) >=posbola.x && (positionPlayer.x + larguraBarra) <= posbola.x +laguraBola) &&  
-(positionPlayer.y + alturaBarra) >=posbola.y && (positionPlayer.y + alturaBarra) <= posbola.y +alturaBola))){
-		alert("colidio");
-	}*/
+
+	//atributos
+	var provisoria= barra.style.marginLeft.split("px");
+	marginLeftBarra=parseFloat(provisoria[0]);
+	provisoria= barra.style.marginTop.split("px");
+	marginTopBarra=parseFloat(provisoria[0]);
+	provisoria=bola.style.marginLeft.split("px");
+	marginLeftBola=parseFloat(provisoria[0]);
+	provisoria=bola.style.marginTop.split("px");
+	marginTopBola=parseFloat(provisoria[0]);
+	//barra posicoes
+	/*
+		a---b
+		|   |
+		|   |
+		|   |
+		c---d
+
+	*/
+	var a = [];
+	a[0]=0;
+	a[1]=marginTopBarra;
+	var b = [];
+	b[0]=larguraBarra;
+	b[1]=marginTopBarra;
+	var c = [];
+	c[0]=0;
+	c[1]=marginTopBarra+alturaBarra;
+	var d = [];
+	d[0]=larguraBarra;
+	d[1]=marginTopBarra+alturaBarra;
+
+	//bola posicoes
+	/*	a-------b
+		|       |
+		|   O   |
+		|       |
+		c-------d
+
+	*/
+	var e = [];
+	e[0]=marginLeftBola;
+	e[1]=marginTopBola;
+	var f = [];
+	f[0]=marginLeftBola+larguraBola;
+	f[1]=marginTopBola;
+	var g = [];
+	g[0]=marginLeftBola;
+	g[1]=marginTopBola+alturaBola;
+	var h = [];
+	h[0]=marginLeftBola+larguraBola;
+	h[1]=marginTopBola+alturaBola;
+
+	//condicao
+	if ((g[0]>=a[0]) && (g[0]<=b[0]) && (g[1]>=a[1]) && (g[1]<=b[1]) || (e[0]>=c[0]) && (e[0]<=d[0]) && (e[1]>=c[1]) && (e[1]<=d[1]) || (g[0]>=b[0]) && (g[0]<=d[0]) && (g[1]>=b[1]) && (g[1]<=d[1]) || (e[0]>=d[0]) && (e[0]<=b[0]) && (e[1]>=d[1]) && (e[1]<=b[1]))
+	{
+		alert("consegui");
+	}
+
 },100);
