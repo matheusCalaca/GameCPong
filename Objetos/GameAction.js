@@ -70,6 +70,8 @@ var myTEste= setInterval(function(){
 		|   |
 		c---d
 
+
+
 	*/
 	var a = [];
 	a[0]=0;
