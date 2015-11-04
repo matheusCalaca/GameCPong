@@ -15,7 +15,7 @@ function Ball(){
 	/*Objeto bola*/
 	function constroiBola(nomeBola){
 		/*construtor*/	
-		fundo.innerHTML+="<div id=\""+nomeBola+"\" style=\" transition: all 0s; position: fixed;\"></div>"
+		fundo.innerHTML+="<div id=\""+nomeBola+"\" style=\" transition: all 0s; position: fixed;\"></div>";
 		bola=document.getElementById(""+nomeBola+"");
 		bola.style.height=alturaBola+"px";
 		bola.style.width=larguraBola+"px";

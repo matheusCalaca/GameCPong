@@ -2,12 +2,12 @@
 	//gravidade da terra funaçao que inverte a gravidade
 	function mudaGravidade(){
 		gravidade= gravidade*(-1);
-		return gravidade
+		return gravidade;
 	}
 	//funçao que muda a direcao do eixo X
 	function mudaDirecao(){
 		velocidade= velocidade*(-1);
-		return velocidade
+		return velocidade;
 	}
 	//faz a bola anda no eixo Y
 	function posY(gravidade){
@@ -40,11 +40,11 @@
 				mudaDirecao();
 			}
 		return novaPosicaoX;
-	};
+	}
 	//inicia a bola
 	function andaBola(){
 		var myVar= setInterval(function(){variavelPosicaoY=posY(gravidade); variavelPosicaoX=posX(velocidade);},100);
-	};andaBola();
+	}andaBola();
 	/*Colisao*/
 	function verificaColisao(){
 

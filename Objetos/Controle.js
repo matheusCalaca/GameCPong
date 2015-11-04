@@ -1,7 +1,7 @@
 //anda pelo eixo X
 		function mudaDirecao(){
 			velocidade= velocidade*(-1);
-			return velocidade
+			return velocidade;
 		}
 
 		function posX(){
@@ -19,11 +19,11 @@
 				}
 				
 			return novaPosicaoX;
-		};
+		}
 
 		function andaBola(){
 			var myVar= setInterval(function(){variavelPosicaoY=posY(gravidade); variavelPosicaoX=posX(velocidade);},100);
-		};andaBola();
+		}andaBola();
 		
 
 
